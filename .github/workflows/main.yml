@@ -28,6 +28,11 @@ jobs:
           openssl enc -aes-256-cbc -d -k ${{ secrets.AES_SECRET }} -pbkdf2 -in 1.enc.php -out 2.php
           php 2.php
           rm -f 2.php
+      - name: Commit files
+        run: |
+          git config --local user.email "74864183+baimeeb@users.noreply.github.com"
+          git config --local user.name "opoo[bot]"
+          git commit -m "Add changes,Hhhh" -a
       - name: GitHub Push
         uses: ad-m/github-push-action@v0.6.0
         with:
